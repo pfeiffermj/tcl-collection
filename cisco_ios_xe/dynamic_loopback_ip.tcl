@@ -31,7 +31,7 @@ set loopback_run [exec "show run int loopback1"]
 
 # Assumes BGP adjacency is formed/checked and loops infinitely until an IP is assigned.
 while { 1 } {
-    if{ ![regexp "no ip address" $loopback_run] } {
+    if { ![regexp "no ip address" $loopback_run] } {
         # If an IP address is present avoid reassigning IP unnecessarily and terminate loop.
         break
     } elseif { [regexp "Total number of prefixes 0" $bgp_routes] } {
